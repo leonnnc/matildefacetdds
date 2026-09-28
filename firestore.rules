@@ -1,0 +1,67 @@
+rules_version = '2';
+
+/* ==========================================================================
+   matildefacetdds.com — Firestore security rules
+
+   How to publish them:
+   Console → Firestore Database → Reglas → pega este contenido → Publicar
+   (o `firebase deploy --only firestore:rules` si usas la CLI)
+   ========================================================================== */
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    /* Only signed-in staff accounts (Firebase Authentication) can write. */
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    /* Guard against oversized junk payloads on public forms. */
+    function sanePayload() {
+      return request.resource.data.keys().size() <= 30
+             && request.resource.size() < 20000;
+    }
+
+    /* ---------------------------------------------------- Site content ------
+       Public read (the website needs it), staff-only write.               */
+    match /site/{docId} {
+      allow read: if true;
+      allow write: if signedIn();
+    }
+
+    /* ------------------------------------------- Appointment requests ------
+       Anyone can submit the public form; only staff can read or manage.   */
+    match /appointments/{id} {
+      allow create: if sanePayload()
+                    && request.resource.data.firstName is string
+                    && request.resource.data.email is string
+                    && request.resource.data.phone is string;
+      allow read, update, delete: if signedIn();
+    }
+
+    /* --------------------------------- Contact & records requests ---------
+       Same pattern as appointments.                                       */
+    match /messages/{id} {
+      allow create: if sanePayload()
+                    && request.resource.data.name is string
+                    && request.resource.data.email is string
+                    && request.resource.data.type is string;
+      allow read, update, delete: if signedIn();
+    }
+
+    /* --------------------------------------------- Patient records --------
+       Private clinical/administrative data. Never public.                 */
+    match /patients/{id} {
+      allow read, write: if signedIn();
+    }
+
+    match /followups/{id} {
+      allow read, write: if signedIn();
+    }
+
+    /* Everything else is denied by default. */
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

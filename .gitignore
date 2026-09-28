@@ -1,0 +1,17 @@
+# ---------------------------------------------------------------------------
+# Carpetas de trabajo: NO forman parte del sitio publicado
+# ---------------------------------------------------------------------------
+_tools/
+screenshots/
+media-output/
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+image_generate/

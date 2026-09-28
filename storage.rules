@@ -1,0 +1,27 @@
+rules_version = '2';
+
+/* ==========================================================================
+   matildefacetdds.com — Firebase Storage rules (image uploads from the admin panel)
+
+   How to publish them:
+   Console → Storage → Reglas → pega este contenido → Publicar
+   ========================================================================== */
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    /* Images used by the website: public read, staff-only upload. */
+    match /site/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null
+                   && request.resource.size < 5 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*');
+      allow delete: if request.auth != null;
+    }
+
+    /* Everything else is denied by default. */
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

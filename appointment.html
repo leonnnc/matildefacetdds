@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an appointment | matildefacetdds.com — Silver Spring, MD</title>
+<meta name="description" content="Request your dental appointment online at matildefacetdds.com in Silver Spring, Maryland. Bilingual English and Spanish team.">
+<meta name="theme-color" content="#0E7C86">
+<link rel="canonical" href="https://www.matildefacetdds.com/appointment.html">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body data-page="appointment">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="matildefacetdds.com — home">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3c-2.1 0-3.1.9-5 .9S4.3 2.9 4.3 5.7c0 2 .5 3.3 1.1 5.1.5 1.5.8 3 .9 4.5.1 1.7.4 3.4 1.6 3.4 1.4 0 1.4-2.7 1.7-4.6.2-1.3.7-2.1 1.6-2.1s1.4.8 1.6 2.1c.3 1.9.3 4.6 1.7 4.6 1.2 0 1.5-1.7 1.6-3.4.1-1.5.4-3 .9-4.5.6-1.8 1.1-3.1 1.1-5.1 0-2.8-1.8-1.8-3.7-1.8S14.1 3 12 3Z"/></svg></span>
+      <span><span id="brandName">matildefacetdds</span><small id="brandTagline">Cosmetic &amp; General Dentistry</small></span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="Main navigation">
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="index.html#services" data-i18n="nav.services">Treatments</a>
+      <a href="index.html#about" data-i18n="nav.about">About</a>
+      <a href="index.html#visit" data-i18n="nav.visit">Visit us</a>
+      <a href="contact.html" data-i18n="nav.contact">Contact</a>
+      <a href="appointment.html" data-i18n="nav.book">Book online</a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang-btn="en" class="active">EN</button>
+        <button type="button" data-lang-btn="es">ES</button>
+      </div>
+      <a class="btn btn-white header-cta" id="headerPhone" href="tel:+13015935477">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.4 3.6h3l1.5 3.8-2 1.3a11.5 11.5 0 0 0 5.4 5.4l1.3-2 3.8 1.5v3a1.9 1.9 0 0 1-2 1.9A15.6 15.6 0 0 1 4.5 5.6a1.9 1.9 0 0 1 1.9-2Z"/></svg>
+        <span data-phone-label>(301) 593-5477</span>
+      </a>
+      <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="crumbs"><a href="index.html" data-i18n="nav.home">Home</a> <span>/</span> <span data-i18n="nav.book">Book online</span></div>
+      <h1 data-i18n="cta.book">Book an appointment</h1>
+      <p data-i18n="appt.pageSub">Four short steps. We confirm the exact time with you.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:clamp(2rem,4vw,3rem)">
+    <div class="container">
+
+      <div class="wizard" id="wizard">
+        <ol class="wizard-steps">
+          <li class="active"><span class="n">1</span><span data-i18n="wiz.step1">Reason</span></li>
+          <li><span class="n">2</span><span data-i18n="wiz.step2">Date &amp; time</span></li>
+          <li><span class="n">3</span><span data-i18n="wiz.step3">Your details</span></li>
+          <li><span class="n">4</span><span data-i18n="wiz.step4">Confirm</span></li>
+        </ol>
+
+        <form id="appointmentForm" novalidate onsubmit="return false">
+          <div class="wizard-body" id="wizardBody">
+
+            <div class="form-alert" id="wizAlert" role="alert"></div>
+
+            <!-- STEP 1 -->
+            <div class="step-panel active">
+              <h3 data-i18n="wiz.reasonTitle">What brings you in?</h3>
+              <p class="step-sub" data-i18n="wiz.reasonSub">Pick the option that fits best.</p>
+              <div class="choice-grid" id="reasonChoices"></div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step-panel">
+              <h3 data-i18n="wiz.whenTitle">When would you like to come?</h3>
+              <p class="step-sub" data-i18n="wiz.whenSub">Choose a preferred date and time.</p>
+              <div class="field">
+                <label for="apDate" data-i18n="form.date">Preferred date</label>
+                <input type="date" id="apDate" name="date" required>
+                <div class="err"></div>
+              </div>
+              <div class="field">
+                <label data-i18n="form.time">Preferred time</label>
+                <div class="slots" id="timeSlots"></div>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step-panel">
+              <h3 data-i18n="wiz.detailsTitle">Tell us about you</h3>
+              <p class="step-sub" data-i18n="wiz.detailsSub">We only ask for what we need.</p>
+
+              <div class="field-row two">
+                <div class="field">
+                  <label for="apFirst" data-i18n="form.firstName">First name</label>
+                  <input type="text" id="apFirst" name="firstName" autocomplete="given-name" required>
+                  <div class="err"></div>
+                </div>
+                <div class="field">
+                  <label for="apLast" data-i18n="form.lastName">Last name</label>
+                  <input type="text" id="apLast" name="lastName" autocomplete="family-name" required>
+                  <div class="err"></div>
+                </div>
+              </div>
+
+              <div class="field-row two">
+                <div class="field">
+                  <label for="apEmail" data-i18n="form.email">Email address</label>
+                  <input type="email" id="apEmail" name="email" autocomplete="email" required>
+                  <div class="err"></div>
+                </div>
+                <div class="field">
+                  <label for="apPhone" data-i18n="form.phone">Phone number</label>
+                  <input type="tel" id="apPhone" name="phone" autocomplete="tel" required>
+                  <div class="err"></div>
+                </div>
+              </div>
+
+              <div class="field-row two">
+                <div class="field">
+                  <label for="apContactMethod" data-i18n="form.preferredContact">How would you like us to contact you?</label>
+                  <select id="apContactMethod" name="preferredContact">
+                    <option value="phone" data-i18n="form.contactPhone">Phone call</option>
+                    <option value="email" data-i18n="form.contactEmail">Email</option>
+                    <option value="whatsapp" data-i18n="form.contactWhatsapp">WhatsApp</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="apInsurance" data-i18n="form.insurance">Do you have dental insurance?</label>
+                  <select id="apInsurance" name="insurance">
+                    <option value="yes" data-i18n="form.insuranceYes">Yes</option>
+                    <option value="no" data-i18n="form.insuranceNo">No</option>
+                    <option value="unsure" data-i18n="form.insuranceUnsure">Not sure</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="check"><input type="checkbox" id="apNewPatient" name="newPatient"> <span data-i18n="form.iAmNew">This is my first visit</span></label>
+              </div>
+
+              <div id="newPatientExtra" class="hidden">
+                <div class="field-row two">
+                  <div class="field">
+                    <label for="apDob" data-i18n="form.dob">Date of birth</label>
+                    <input type="date" id="apDob" name="dob">
+                  </div>
+                  <div class="field">
+                    <label for="apAddress" data-i18n="form.address">Address</label>
+                    <input type="text" id="apAddress" name="address" autocomplete="street-address">
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="apNotes" data-i18n="form.notes">Anything we should know?</label>
+                <textarea id="apNotes" name="notes"></textarea>
+                <div class="hint" data-i18n="form.notesHint">Allergies, medications, dental anxiety…</div>
+              </div>
+
+              <div class="field">
+                <label class="check"><input type="checkbox" id="apConsent" name="consent" required> <span data-i18n="form.consent">I agree to be contacted about my request.</span></label>
+                <div class="err"></div>
+              </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="step-panel">
+              <h3 data-i18n="wiz.confirmTitle">Please review your request</h3>
+              <p class="step-sub" data-i18n="wiz.confirmSub">Check the details below, then send it to our team.</p>
+              <div class="summary" id="wizSummary"></div>
+              <p class="form-note" id="wizNotice"></p>
+            </div>
+
+            <p class="sr-only" id="wizLive" aria-live="polite"></p>
+          </div>
+
+          <div class="wizard-foot">
+            <button type="button" class="btn btn-outline" id="wizBack" data-i18n="form.back">Back</button>
+            <button type="button" class="btn btn-primary" id="wizNext" data-i18n="form.next">Continue</button>
+          </div>
+        </form>
+
+        <div id="wizardSuccess" style="display:none;padding:clamp(1.5rem,4vw,2.6rem)"></div>
+      </div>
+
+      <div class="grid grid-3" style="margin-top:2.5rem;max-width:920px;margin-inline:auto">
+        <div class="panel" style="text-align:center">
+          <div class="ico" style="margin:0 auto .8rem;width:46px;height:46px;border-radius:13px;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.2V12l3.4 2"/></svg>
+          </div>
+          <strong style="font-family:var(--font-display)">9:00 am – 4:00 pm</strong>
+          <p style="margin:.3rem 0 0;font-size:.86rem" data-i18n="appt.hoursDays">Mon – Thu</p>
+        </div>
+        <div class="panel" style="text-align:center">
+          <div class="ico" style="margin:0 auto .8rem;width:46px;height:46px;border-radius:13px;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 3.6h3l1.5 3.8-2 1.3a11.5 11.5 0 0 0 5.4 5.4l1.3-2 3.8 1.5v3a1.9 1.9 0 0 1-2 1.9A15.6 15.6 0 0 1 4.5 5.6a1.9 1.9 0 0 1 1.9-2Z"/></svg>
+          </div>
+          <a href="tel:+13015935477"><strong style="font-family:var(--font-display)">(301) 593-5477</strong></a>
+          <p style="margin:.3rem 0 0;font-size:.86rem" data-i18n="cta.callOffice">Call the office</p>
+        </div>
+        <div class="panel" style="text-align:center">
+          <div class="ico" style="margin:0 auto .8rem;width:46px;height:46px;border-radius:13px;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21.4s6.6-6 6.6-11.4A6.6 6.6 0 0 0 5.4 10c0 5.4 6.6 11.4 6.6 11.4Z"/><circle cx="12" cy="9.9" r="2.5"/></svg>
+          </div>
+          <strong style="font-family:var(--font-display)">11161 New Hampshire Ave.</strong>
+          <p style="margin:.3rem 0 0;font-size:.86rem">Suite 205, Silver Spring, MD 20904</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html">
+          <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="#fff"><path d="M12 3c-2.1 0-3.1.9-5 .9S4.3 2.9 4.3 5.7c0 2 .5 3.3 1.1 5.1.5 1.5.8 3 .9 4.5.1 1.7.4 3.4 1.6 3.4 1.4 0 1.4-2.7 1.7-4.6.2-1.3.7-2.1 1.6-2.1s1.4.8 1.6 2.1c.3 1.9.3 4.6 1.7 4.6 1.2 0 1.5-1.7 1.6-3.4.1-1.5.4-3 .9-4.5.6-1.8 1.1-3.1 1.1-5.1 0-2.8-1.8-1.8-3.7-1.8S14.1 3 12 3Z"/></svg></span>
+          <span><span id="footerBrandName">matildefacetdds</span><small id="footerTagline" data-i18n="footer.tagline">Cosmetic &amp; General Dentistry</small></span>
+        </a>
+        <p data-i18n="footer.disclaimer" style="max-width:38ch">This website is for general information.</p>
+        <div class="socials" id="socials"></div>
+      </div>
+      <div>
+        <h4 data-i18n="footer.explore">Explore</h4>
+        <div class="footer-links" id="footerLinks"></div>
+      </div>
+      <div>
+        <h4 data-i18n="footer.contact">Contact</h4>
+        <div id="footerContact"></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span><span class="dot"></span>&copy; <span data-year>2026</span> matildefacetdds.com. <span data-i18n="footer.rights">All rights reserved.</span></span>
+      <span>Silver Spring, MD &middot; (301) 593-5477</span>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="tel:+13015935477" aria-label="Call now" style="display:none"></a>
+
+<script src="assets/js/icons.js"></script>
+<script src="assets/js/content.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/firebase-config.js"></script>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/forms.js"></script>
+<script type="module" src="assets/js/fb.js"></script>
+</body>
+</html>
