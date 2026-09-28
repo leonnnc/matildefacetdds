@@ -138,21 +138,21 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* Image logo — home page header.
-   The PNG has a transparent background with light artwork, so it sits on a
-   dark badge: it blends into the dark hero and stays legible on the white
-   header once the page is scrolled. */
+   The artwork is line art (grey strokes, no fill) on a transparent PNG, so it
+   needs a white surface: it reads like the embossed sign, and the white badge
+   also stands out cleanly against the dark hero. */
 .brand-logo{
   display:inline-flex;align-items:center;
-  padding:7px 13px;border-radius:14px;
-  background:linear-gradient(135deg,#092038,#15395B);
-  box-shadow:0 10px 26px rgba(6,21,36,.3);
+  padding:6px 12px;border-radius:13px;
+  background:#fff;
+  box-shadow:0 10px 26px rgba(6,21,36,.26), inset 0 0 0 1px rgba(10,37,64,.06);
   transition:padding .3s var(--ease),box-shadow .3s var(--ease)
 }
 .brand-logo img{
   height:clamp(24px,2.6vw,38px);width:auto;max-width:none;
   display:block;flex:0 0 auto
 }
-.site-header.scrolled .brand-logo{box-shadow:0 8px 20px rgba(10,37,64,.22)}
+.site-header.scrolled .brand-logo{box-shadow:0 6px 18px rgba(10,37,64,.18), inset 0 0 0 1px rgba(10,37,64,.22)}
 @media(max-width:520px){
   .brand-logo{padding:5px 10px;border-radius:11px}
 }
